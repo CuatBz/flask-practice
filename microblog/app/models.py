@@ -81,8 +81,8 @@ class User(UserMixin, db.Model):
 
     # Method to get posts of users being followed
     def following_posts(self):
-        Author = so.Aliased(User)
-        Follower = so.Aliased(User)
+        Author = so.aliased(User)
+        Follower = so.aliased(User)
 
         return (
             sa.select(Post)

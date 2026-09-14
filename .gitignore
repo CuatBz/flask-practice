@@ -15,3 +15,6 @@ instance/
 
 #database
 app.db
+
+#logs
+logs/
