@@ -25,6 +25,9 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError("Please use a different username.")
 
 
+class EmptyForm(FlaskForm):
+    submit = SubmitField("Submit")
+
 
 class LoginForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
