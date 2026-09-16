@@ -37,6 +37,15 @@ def edit_profile():
                            form=form)
 
 
+@app.route("/explore")
+@login_required
+def explore():
+    query = sa.select(Post).order_by(Post.timestamp.desc())
+    posts = db.session.scalars(query).all()
+
+    return render_template("index.html", title="Explore", posts=posts)
+
+
 @app.route("/follow/<username>", methods=["POST"])
 @login_required
 def follow(username):
